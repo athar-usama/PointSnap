@@ -1,0 +1,7 @@
+epochs: 15
+batch_size: 32
+lr: 0.001
+n_train: 800
+n_val: 200
+crop_size: 64
+num_threads: 4

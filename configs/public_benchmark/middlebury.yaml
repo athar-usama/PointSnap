@@ -1,0 +1,10 @@
+scenes:
+  - Motorcycle-perfect
+  - Piano-perfect
+  - Backpack-perfect
+  - Playtable-perfect
+  - Adirondack-perfect
+  - Recycle-perfect
+backbones:
+  - depth_anything_v2_small
+  - midas_dpt_hybrid

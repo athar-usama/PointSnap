@@ -1,0 +1,26 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+
+# large / generated artifacts — regenerate via scripts/, never commit binaries
+data/raw/
+data/cache/
+data/synthetic/
+.hf_cache/
+*.mp4
+*.avi
+*.pt
+!weights/.gitkeep
+runs/
+
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+
+# planning notes for this build — kept locally, not part of the published project
+PLAN.md

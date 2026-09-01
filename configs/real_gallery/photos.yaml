@@ -1,0 +1,20 @@
+photos:
+  - name: fisheye_desk
+    path: data/raw/real_gallery/candidate_fisheye.jpg
+    url: https://live.staticflickr.com/4061/4266528423_22b4e1aeed_b.jpg
+    fisheye: true
+    credit: "aLindquist, Flickr (CC BY 2.0): https://www.flickr.com/photos/32028492@N05/4266528423"
+  - name: daytime_park
+    path: data/raw/real_gallery/candidate_park.jpg
+    url: https://live.staticflickr.com/2318/2354914325_a36c93bdb0_b.jpg
+    fisheye: false
+    credit: "Marco Gomes, Flickr (CC BY 2.0): https://www.flickr.com/photos/39802787@N00/2354914325"
+  - name: middlebury_motorcycle
+    path: data/raw/middlebury/Motorcycle-perfect/im0.png
+    fisheye: false
+    credit: "Middlebury Stereo 2014 (Scharstein et al.)"
+  - name: middlebury_backpack
+    path: data/raw/middlebury/Backpack-perfect/im0.png
+    fisheye: false
+    credit: "Middlebury Stereo 2014 (Scharstein et al.)"
+max_dim: 640

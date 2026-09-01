@@ -1,0 +1,6 @@
+size: 256
+supersample: 4
+n_train: 3200
+n_val: 400
+n_test: 400
+seed_offset: 0
