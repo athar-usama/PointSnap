@@ -66,6 +66,8 @@ Isolation rate and Bridging Rate both drop by roughly half to three-quarters, at
 
 The candidate-detection stage that flags *which* pixels might be fly-points is a hybrid: a fast classical heuristic (an unexplained-depth-edge test plus a morphological bridging-distance test) combined with a small (~0.5M-parameter) U-Net trained on the same synthetic corruption model, via noisy-OR. Measured against the synthetic ground-truth artifact mask (150 test scenes):
 
+<div align="center">
+
 | Severity | Detector | Precision | Recall | F1 |
 |---|---|---|---|---|
 | Easy | classical | 0.052 | 0.168 | 0.077 |
@@ -77,6 +79,8 @@ The candidate-detection stage that flags *which* pixels might be fly-points is a
 | Hard | classical | 0.401 | 0.483 | 0.426 |
 | Hard | CNN | 0.941 | 0.750 | **0.823** |
 | Hard | ensemble (noisy-OR) | 0.389 | 0.920 | 0.540 |
+
+</div>
 
 The honest result here isn't the one the design predicted: the CNN alone has the best standalone F1 at every severity, and noisy-OR, by construction (since either detector firing is enough), trades a lot of precision for recall. The pipeline keeps noisy-OR as the default anyway, because the *next* stage (RANSAC's bimodality check) already rejects a flagged pixel that doesn't sit in a genuinely two-surface neighborhood. A high-recall, lower-precision candidate proposal is cheap to over-produce here, since something downstream is already built to say no.
 
