@@ -1,4 +1,4 @@
-"""Loader for the pregenerated synthetic dataset — used by both CNN training
+"""Loader for the pregenerated synthetic dataset, used by both CNN training
 (`detect/train_cnn.py`) and the synthetic benchmark runner (`eval/`)."""
 
 from __future__ import annotations
@@ -27,7 +27,7 @@ class SyntheticDataset:
         self.dir = Path(root) / split
         if not self.dir.exists():
             raise FileNotFoundError(
-                f"{self.dir} not found — run scripts/generate_synthetic_dataset.py first"
+                f"{self.dir} not found, run scripts/generate_synthetic_dataset.py first"
             )
         self.indices = sorted(p.name for p in self.dir.iterdir() if p.is_dir())
 

@@ -32,7 +32,7 @@ def test_boundary_mask_is_nonempty_and_thin():
 
 def test_rgb_is_smoothly_antialiased_while_depth_gt_is_crisp():
     scene = generate_scene(seed=4, size=96, supersample=4)
-    # depth_gt must take on exactly len(unique instance ids) distinct values —
+    # depth_gt must take on exactly len(unique instance ids) distinct values,
     # no blending, unlike the RGB channel which is downsampled with area averaging
     n_ids = len(np.unique(scene.instance_mask))
     n_depth_values = len(np.unique(scene.depth_gt))

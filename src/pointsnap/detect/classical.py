@@ -2,17 +2,17 @@
 
 Two complementary signals, both robust-normalized (median/MAD) and combined:
 
-  1. "unexplained depth edge" — a depth discontinuity with no corresponding
+  1. "unexplained depth edge": a depth discontinuity with no corresponding
      RGB edge nearby. Catches artifacts that spill into flat-colored regions
      (a bridge extending past the true silhouette, an isolated fly-point far
      from any real edge).
-  2. "bridging distance" — how close a pixel's inverse depth sits to the
+  2. "bridging distance": how close a pixel's inverse depth sits to the
      midpoint between the local min/max, inside windows where that local
      range is large enough to be a genuine boundary rather than noise. A
      pixel sitting cleanly at one extreme scores ~0; a pixel smeared exactly
      between two surfaces scores ~0.5. This is a fast morphological
      (erode/dilate) proxy for "does this pixel fail to belong to either
-     local plane" — the exact, expensive version (full RANSAC bi-planar fit)
+     local plane", the exact, expensive version (full RANSAC bi-planar fit)
      is reserved for `refine/ransac_biplanar.py`, run only on the pixels
      this screening pass flags, never on the whole image.
 

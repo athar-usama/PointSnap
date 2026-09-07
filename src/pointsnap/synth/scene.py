@@ -11,7 +11,7 @@ rasterized at two different resolutions from the same parameters:
 Both share the same underlying geometric contour; only the sampling
 resolution differs. That is what lets the corruption model (`corruption.py`)
 inject a *depth*-only artifact near a boundary that RGB still describes
-truthfully — the premise the whole refinement algorithm depends on.
+truthfully: the premise the whole refinement algorithm depends on.
 """
 
 from __future__ import annotations
@@ -92,10 +92,10 @@ def rasterize_shape(shape: Shape, resolution: int) -> np.ndarray:
 
 @dataclass
 class SyntheticScene:
-    rgb: np.ndarray            # (H, W, 3) uint8 — anti-aliased render
-    depth_gt: np.ndarray       # (H, W) float64 — crisp ground-truth depth
-    boundary_mask: np.ndarray  # (H, W) bool — true occlusion contour, ~2px thick
-    instance_mask: np.ndarray  # (H, W) int32 — 0 = background, 1..k = foreground shapes
+    rgb: np.ndarray            # (H, W, 3) uint8, anti-aliased render
+    depth_gt: np.ndarray       # (H, W) float64, crisp ground-truth depth
+    boundary_mask: np.ndarray  # (H, W) bool, true occlusion contour, ~2px thick
+    instance_mask: np.ndarray  # (H, W) int32, 0 = background, 1..k = foreground shapes
     seed: int
     nominal_focal: float       # a plausible fx=fy for this scene's synthetic camera
 

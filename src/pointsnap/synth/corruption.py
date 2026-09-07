@@ -1,22 +1,22 @@
 """Depth corruption model: simulates what a real monocular depth network's
 raw output looks like near occlusion boundaries.
 
-Applied ONLY to depth — RGB stays the true composite. That asymmetry is the
+Applied ONLY to depth: RGB stays the true composite. That asymmetry is the
 whole premise of the downstream RGB-edge-aware relabeling: it needs a channel
 that still tells the truth about where the real edge is, exactly like a real
 photo does even when a depth network's prediction blurs across it.
 
 Four independent effects, at three severities:
-  1. boundary jitter    — the whole depth field is shifted by a small random
-                           offset before blurring, decoupling "wrong location"
-                           from "wrong sharpness".
-  2. Gaussian depth blur — the base ramp artifact.
-  3. fly-pixel injection — sparse pixels within a band around the true
-                           boundary set to a random convex combination of the
-                           two neighboring surfaces' depths — the direct
-                           simulacrum of a floating point in the 3D cloud.
-  4. global multiplicative noise — unrelated to edges, so a detector can't
-                           cheat by flagging every local depth gradient.
+  1. boundary jitter: the whole depth field is shifted by a small random
+                       offset before blurring, decoupling "wrong location"
+                       from "wrong sharpness".
+  2. Gaussian depth blur: the base ramp artifact.
+  3. fly-pixel injection: sparse pixels within a band around the true
+                       boundary set to a random convex combination of the
+                       two neighboring surfaces' depths, the direct
+                       simulacrum of a floating point in the 3D cloud.
+  4. global multiplicative noise: unrelated to edges, so a detector can't
+                       cheat by flagging every local depth gradient.
 """
 
 from __future__ import annotations
@@ -106,7 +106,7 @@ def corrupt_depth(
             depth_raw[y, x] = alpha * pair[0] + (1 - alpha) * pair[1]
 
     # Ground truth is derived from the boundary corruption alone, *before* the
-    # unrelated noise pass — the noise is a distractor the detector must
+    # unrelated noise pass: the noise is a distractor the detector must
     # learn to see through, not a phenomenon it should learn to flag. Adding
     # it before labeling would leak ~1-3% of flat, non-boundary background
     # pixels into "artifact" purely from Gaussian tail crossings, which both

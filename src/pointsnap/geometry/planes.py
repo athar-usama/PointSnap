@@ -7,7 +7,7 @@ A real 3D plane n.X = d, back-projected through a pinhole model, satisfies
 for constants (A, B, C) that fold in the plane's normal, offset, and the
 camera intrinsics (see derivation in PLAN.md / README). This holds whether Z
 is metric or an unknown affine transform of the true depth, because an affine
-function of an affine field is still affine — so every function here operates
+function of an affine field is still affine, so every function here operates
 directly on a monocular backbone's raw output with no calibration step.
 """
 

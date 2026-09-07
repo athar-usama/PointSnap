@@ -58,7 +58,7 @@ class ConfidenceUNet(nn.Module):
         d1 = self.dec1(torch.cat([self.up1(d2), x1], dim=1))
         d0 = self.dec0(torch.cat([self.up0(d1), x0], dim=1))
 
-        return self.head(d0)  # raw logits — callers apply sigmoid / BCEWithLogits as needed
+        return self.head(d0)  # raw logits; callers apply sigmoid / BCEWithLogits as needed
 
     def num_parameters(self) -> int:
         return sum(p.numel() for p in self.parameters())

@@ -2,7 +2,7 @@
 
 Each scene folder holds exactly what PLAN.md specifies: `rgb.png`,
 `depth_gt.npy`, `depth_raw.npy`, `artifact_mask.png`, `boundary_mask.png`,
-`meta.json`. Regenerable from a fixed seed range — never committed to git.
+`meta.json`. Regenerable from a fixed seed range; never committed to git.
 """
 
 from __future__ import annotations
