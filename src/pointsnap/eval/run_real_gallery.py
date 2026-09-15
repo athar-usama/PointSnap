@@ -23,7 +23,7 @@ from pointsnap.geometry.intrinsics import Intrinsics
 from pointsnap.refine.pipeline import refine_depth
 from pointsnap.viz.before_after_grid import hstack_panels
 from pointsnap.viz.depth_colormap import colorize_depth
-from pointsnap.viz.pointcloud_render import render_rotating_gif
+from pointsnap.viz.mesh_render import render_rotating_mesh_gif
 
 ROOT = Path(__file__).resolve().parents[3]
 _FOCAL_TAG = next((k for k, v in ExifTags.TAGS.items() if v == "FocalLengthIn35mmFilm"), None)
@@ -88,8 +88,8 @@ def run_gallery(config_path: Path, out_dir: Path, gif_dir: Path, cnn_weights_pat
 
         raw_gif_path = gif_dir / f"{entry['name']}_raw.gif"
         refined_gif_path = gif_dir / f"{entry['name']}_refined.gif"
-        render_rotating_gif(depth_raw, rgb, intrinsics, str(raw_gif_path))
-        render_rotating_gif(result.depth_refined, rgb, intrinsics, str(refined_gif_path))
+        render_rotating_mesh_gif(depth_raw, rgb, intrinsics, str(raw_gif_path))
+        render_rotating_mesh_gif(result.depth_refined, rgb, intrinsics, str(refined_gif_path))
 
         manifest.append(
             {
