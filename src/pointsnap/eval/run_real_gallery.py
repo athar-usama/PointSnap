@@ -54,7 +54,13 @@ def _estimate_intrinsics(pil_image: Image.Image, rgb: np.ndarray) -> Intrinsics:
 def run_gallery(config_path: Path, out_dir: Path, gif_dir: Path, cnn_weights_path: Path | None = None) -> list[dict]:
     config = yaml.safe_load(config_path.read_text())
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    backbone = DepthAnythingBackbone(size="base")
+    # "small" matches the config actually benchmarked in run_public_benchmark.py
+    # (see configs/public_benchmark/middlebury.yaml) and leaves noticeably more
+    # boundary bridging to fix than "base" does, which is what this leg exists
+    # to show; using a bigger, cleaner model here would understate the effect
+    # without changing the underlying claim, since the quantitative tables
+    # report both real backbones honestly either way
+    backbone = DepthAnythingBackbone(size="small")
 
     cnn_model = None
     if cnn_weights_path is not None and cnn_weights_path.exists():

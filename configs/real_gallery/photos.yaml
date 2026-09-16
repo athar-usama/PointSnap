@@ -13,8 +13,8 @@ photos:
     path: data/raw/middlebury/Motorcycle-perfect/im0.png
     fisheye: false
     credit: "Middlebury Stereo 2014 (Scharstein et al.)"
-  - name: middlebury_backpack
-    path: data/raw/middlebury/Backpack-perfect/im0.png
+  - name: middlebury_piano
+    path: data/raw/middlebury/Piano-perfect/im0.png
     fisheye: false
     credit: "Middlebury Stereo 2014 (Scharstein et al.)"
 max_dim: 640

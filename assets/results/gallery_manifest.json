@@ -3,7 +3,7 @@
     "name": "fisheye_desk",
     "credit": "aLindquist, Flickr (CC BY 2.0): https://www.flickr.com/photos/32028492@N05/4266528423",
     "fisheye": true,
-    "fraction_candidates": 0.27210661764705885,
+    "fraction_candidates": 0.2573566176470588,
     "grid": "assets\\results\\fisheye_desk_grid.png",
     "raw_gif": "assets\\gifs\\fisheye_desk_raw.gif",
     "refined_gif": "assets\\gifs\\fisheye_desk_refined.gif"
@@ -12,7 +12,7 @@
     "name": "daytime_park",
     "credit": "Marco Gomes, Flickr (CC BY 2.0): https://www.flickr.com/photos/39802787@N00/2354914325",
     "fisheye": false,
-    "fraction_candidates": 0.077490234375,
+    "fraction_candidates": 0.06850260416666666,
     "grid": "assets\\results\\daytime_park_grid.png",
     "raw_gif": "assets\\gifs\\daytime_park_raw.gif",
     "refined_gif": "assets\\gifs\\daytime_park_refined.gif"
@@ -21,18 +21,18 @@
     "name": "middlebury_motorcycle",
     "credit": "Middlebury Stereo 2014 (Scharstein et al.)",
     "fisheye": false,
-    "fraction_candidates": 0.11736876450116009,
+    "fraction_candidates": 0.11126740139211137,
     "grid": "assets\\results\\middlebury_motorcycle_grid.png",
     "raw_gif": "assets\\gifs\\middlebury_motorcycle_raw.gif",
     "refined_gif": "assets\\gifs\\middlebury_motorcycle_refined.gif"
   },
   {
-    "name": "middlebury_backpack",
+    "name": "middlebury_piano",
     "credit": "Middlebury Stereo 2014 (Scharstein et al.)",
     "fisheye": false,
-    "fraction_candidates": 0.19192708333333333,
-    "grid": "assets\\results\\middlebury_backpack_grid.png",
-    "raw_gif": "assets\\gifs\\middlebury_backpack_raw.gif",
-    "refined_gif": "assets\\gifs\\middlebury_backpack_refined.gif"
+    "fraction_candidates": 0.11747844827586207,
+    "grid": "assets\\results\\middlebury_piano_grid.png",
+    "raw_gif": "assets\\gifs\\middlebury_piano_raw.gif",
+    "refined_gif": "assets\\gifs\\middlebury_piano_refined.gif"
   }
 ]

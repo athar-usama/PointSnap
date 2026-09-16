@@ -93,7 +93,7 @@ The refinement takes raw depth as input and never touches backbone internals, so
 | Depth Anything V2 (Small) | 0.0323 → 0.0325 | 0.9956 → 0.9955 | 1.077 → **1.061** (−1.5%) | 0.867 → **0.803** (−7.3%) |
 | MiDaS DPT-Hybrid | 0.0439 → 0.0440 | 0.9912 → 0.9913 | 1.051 → **1.042** (−0.8%) | 0.983 → **0.949** (−3.5%) |
 
-Bridging Rate improves for **both** backbones on **every one of the 6 scenes**: the full per-scene table is in `assets/results/public_benchmark.csv`. The effect size is smaller than on the synthetic stress test, and smaller for Depth Anything V2 than for MiDaS, expected since a stronger backbone simply leaves less bridging behind to begin with. AbsRel and δ₁ barely move either way, which is the point: this is a boundary-local correction, not a global depth fix.
+Bridging Rate improves for **both** backbones on **every one of the 6 scenes**: the full per-scene table is in `assets/results/public_benchmark.csv`. The effect size is smaller than on the synthetic stress test, and, somewhat counterintuitively, larger for Depth Anything V2 than for MiDaS in relative terms (7.5% vs 3.4% average reduction). The likely reason: MiDaS's raw bridging sits at 0.98 on average, meaning almost every boundary crossing is already smeared even on easy scenes, so there's no local anomaly for the candidate detector's contrast test to key on. Depth Anything V2's raw output is cleaner overall but concentrates its real errors at a handful of genuinely hard boundaries (the Motorcycle scene's wheel spokes, for instance), which stand out clearly against a clean baseline and are exactly what the detector is built to find. AbsRel and δ₁ barely move either way, which is the point: this is a boundary-local correction, not a global depth fix.
 
 This benchmark stands in for iBims-1, which was the original plan: its dataset host serves files through an interactive share portal with no stable anonymous access path (confirmed directly: anonymous FTP returns `530 Login incorrect`). Middlebury 2014 ships something arguably more relevant anyway: ground-truth disparity with occluded pixels explicitly marked as invalid, a direct, real-world occlusion-boundary signal.
 
@@ -110,9 +110,9 @@ This benchmark stands in for iBims-1, which was the original plan: its dataset h
 <p align="center"><i>A genuine fisheye lens photo (aLindquist, CC BY 2.0), no distortion model, just the plain pinhole pipeline. Boundary noise around the monitor and tower visibly cleans up regardless.</i></p>
 
 <p align="center">
-  <img src="assets/results/middlebury_backpack_grid.png" width="640" alt="Backpack: RGB, raw depth, refined depth">
+  <img src="assets/results/middlebury_piano_grid.png" width="640" alt="Piano: RGB, raw depth, refined depth">
 </p>
-<p align="center"><i>Mesh crate and broom handle against a cluttered background: a harder case, and the gain is smaller here than the two above.</i></p>
+<p align="center"><i>Piano keys and guitar strings: more dense, repeated thin edges, and another clean improvement for the same reason the motorcycle's spokes are.</i></p>
 
 ## Where this still breaks
 
